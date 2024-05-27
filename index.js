@@ -4,7 +4,7 @@ let tasks = [];
 // Función para agregar una tarea
 function addTask(task) {
     tasks.push(task);
-    console.log(`Tarea "${task}" agregada.`);
+    alert(`Tarea "${task}" agregada.`);
 }
 
 // Función para mostrar todas las tareas
@@ -19,9 +19,9 @@ function showTasks() {
 function deleteTask(index) {
     if (index >= 0 && index < tasks.length) {
         const deletedTask = tasks.splice(index, 1);
-        console.log(`Tarea "${deletedTask}" eliminada.`);
+        alert(`Tarea "${deletedTask}" eliminada.`);
     } else {
-        console.log("Índice inválido.");
+        alert("Índice inválido.");
     }
 }
 
@@ -47,10 +47,10 @@ function main() {
                 deleteTask(indexToDelete);
                 break;
             case "4":
-                console.log("¡Hasta luego!");
+                alert("¡Hasta luego!");
                 break;
             default:
-                console.log("Opción no válida.");
+                alert("Opción no válida.");
         }
     }
 }
