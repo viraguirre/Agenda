@@ -32,8 +32,7 @@ function main() {
     let option = "";
 
     while (option !== "Salir") {
-        option = prompt("Ingrese '1' para agregar una tarea, '2' para mostrar todas las tareas, '3' para eliminar una tarea o '4' para salir:");
-
+        option = prompt("Ingrese una opción: \n '1' Agregar una tarea. \n '2' Mostrar todas las tareas. \n '3' Eliminar una tarea. \n '4' Salir.");
         switch (option) {
             case "1":
                 const newTask = prompt("Ingrese la nueva tarea:");
