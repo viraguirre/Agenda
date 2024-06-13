@@ -54,5 +54,5 @@ function main() {
     }
 }
 
-// Llamar a la función para ejecución
+// Llamada a la función para ejecución
 main();
