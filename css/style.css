@@ -1,0 +1,21 @@
+/**reset**/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/**Generales**/ 
+h1,p,li{
+    font-family: 'allerta', sans-serif;
+    color: #1d1a1a;
+}
+h1{
+    color: #68c791;
+}
+
+li{
+    background-color: #68c791;
+    color: white;
+}
