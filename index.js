@@ -1,58 +1,39 @@
-// Definición de array para almacenar las tareas
 let tasks = [];
 
-// Función para agregar una tarea
-function addTask(task) {
-    tasks.push(task);
-    alert(`Tarea "${task}" agregada.`);
+function addTask() {
+    const newTask = prompt("Ingrese la nueva tarea:");
+    if (newTask) {
+        tasks.push(newTask);
+        updateTaskList();
+    }
 }
 
-// Función para mostrar todas las tareas
 function showTasks() {
-    alert("Lista de tareas:");
+    let taskList = "Lista de tareas:\n";
     tasks.forEach((task, index) => {
-        alert(`${index + 1}. ${task}`);
+        taskList += `${index + 1}. ${task}\n`;
     });
+    alert(taskList);
 }
 
-// Función para eliminar una tarea
-function deleteTask(index) {
-    if (index >= 0 && index < tasks.length) {
-        const deletedTask = tasks.splice(index, 1);
+function deleteTask() {
+    const indexToDelete = parseInt(prompt("Ingrese el número de tarea que desea eliminar:")) - 1;
+    if (indexToDelete >= 0 && indexToDelete < tasks.length) {
+        const deletedTask = tasks.splice(indexToDelete, 1);
         alert(`Tarea "${deletedTask}" eliminada.`);
+        updateTaskList();
     } else {
         alert("Índice inválido.");
     }
 }
 
-// Función para ejecución
-function main() {
-    alert("¡Bienvenido a tu nueva lista de tareas!");
-
-    let option = "";
-
-    while (option !== "Salir") {
-        option = prompt("Ingrese una opción: \n '1' Agregar una tarea. \n '2' Mostrar todas las tareas. \n '3' Eliminar una tarea. \n '4' Salir.");
-        switch (option) {
-            case "1":
-                const newTask = prompt("Ingrese la nueva tarea:");
-                addTask(newTask);
-                break;
-            case "2":
-                showTasks();
-                break;
-            case "3":
-                const indexToDelete = parseInt(prompt("Ingrese el número de tarea que desea eliminar:")) - 1;
-                deleteTask(indexToDelete);
-                break;
-            case "4":
-                alert("¡Hasta luego!");
-                break;
-            default:
-                alert("Opción no válida.");
-        }
-    }
+function updateTaskList() {
+    const taskListDiv = document.getElementById("taskList");
+    taskListDiv.innerHTML = "<ul>";
+    tasks.forEach((task, index) => {
+        taskListDiv.innerHTML += `<li>${index + 1}. ${task}</li>`;
+    });
+    taskListDiv.innerHTML += "</ul>";
 }
 
-// Llamada a la función para ejecución
-main();
+

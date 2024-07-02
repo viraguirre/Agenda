@@ -14,8 +14,12 @@ h1,p,li{
 h1{
     color: #68c791;
 }
-
-li{
+h2{
     background-color: #68c791;
     color: white;
+
+}
+
+li{
+    color: #297d4d;
 }
