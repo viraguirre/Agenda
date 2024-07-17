@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>Lista de Tareas</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Ideas y Planazos</h1>
-
-    <h2>Lista de Tareas</h2>
-
-    <div id="taskList"></div>
-    <button onclick="addTask()">1. Agregar Tarea</button>
-    <button onclick="showTasks()">2. Mostrar Tareas</button>
-    <button onclick="deleteTask()">3. Eliminar Tarea</button>
+    <div class="container">
+        <h1>Ideas y Planazos</h1>
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Nueva tarea">
+            <button onclick="addTask()">Agregar</button>
+        </div>
+        <ul id="taskList" class="task-list"></ul>
+    </div>
 
     <script src="index.js"></script>
 </body>
-</html>

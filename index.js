@@ -1,39 +1,44 @@
-let tasks = [];
-
-function addTask() {
-    const newTask = prompt("Ingrese la nueva tarea:");
-    if (newTask) {
-        tasks.push(newTask);
-        updateTaskList();
+document.addEventListener('DOMContentLoaded', () => {
+    function addTask() {
+        const taskInput = document.getElementById('taskInput');
+        const taskValue = taskInput.value.trim();
+        
+        if (taskValue === '') {
+            alert('Por favor, ingrese una tarea.');
+            return;
+        }
+        
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${taskValue}</span>
+            <button onclick="removeTask(this)">Eliminar</button>
+            <input type="checkbox" onclick="toggleTask(this)">
+        `;
+        
+        document.getElementById('taskList').appendChild(li);
+        
+        taskInput.value = '';
     }
-}
 
-function showTasks() {
-    let taskList = "Lista de tareas:\n";
-    tasks.forEach((task, index) => {
-        taskList += `${index + 1}. ${task}\n`;
-    });
-    alert(taskList);
-}
-
-function deleteTask() {
-    const indexToDelete = parseInt(prompt("Ingrese el número de tarea que desea eliminar:")) - 1;
-    if (indexToDelete >= 0 && indexToDelete < tasks.length) {
-        const deletedTask = tasks.splice(indexToDelete, 1);
-        alert(`Tarea "${deletedTask}" eliminada.`);
-        updateTaskList();
-    } else {
-        alert("Índice inválido.");
+    window.removeTask = function(button) {
+        const li = button.parentElement;
+        li.remove();
     }
-}
 
-function updateTaskList() {
-    const taskListDiv = document.getElementById("taskList");
-    taskListDiv.innerHTML = "<ul>";
-    tasks.forEach((task, index) => {
-        taskListDiv.innerHTML += `<li>${index + 1}. ${task}</li>`;
+    window.toggleTask = function(checkbox) {
+        const li = checkbox.parentElement;
+        if (checkbox.checked) {
+            li.classList.add('completed');
+        } else {
+            li.classList.remove('completed');
+        }
+    }
+
+    document.querySelector('button').addEventListener('click', addTask);
+
+    document.getElementById('taskInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            addTask();
+        }
     });
-    taskListDiv.innerHTML += "</ul>";
-}
-
-
+});

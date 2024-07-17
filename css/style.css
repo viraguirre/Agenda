@@ -1,25 +1,65 @@
-/**reset**/
-*{
+body {
+    font-family: allerta, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+    background-color: #74dfcd;
 }
-
-/**Generales**/ 
-h1,p,li{
-    font-family: 'allerta', sans-serif;
-    color: #1d1a1a;
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-image: url(../assets/fondo.jpg);
+    background-size: 100% 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-h1{
-    color: #68c791;
+h1 {
+    text-align: center;
+    color: #333;
 }
-h2{
-    background-color: #68c791;
-    color: white;
-
+.task-input {
+    display: flex;
+    margin-bottom: 20px;
 }
-
-li{
-    color: #297d4d;
+.task-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.task-input button {
+    padding: 10px;
+    border: none;
+    background-color: #e01dbf;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.task-input button:hover {
+    background-color: #c60fa7c3;
+}
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+.task-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.task-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+.task-list button {
+    border: none;
+    background-color: transparent;
+    color: #dc3545;
+    cursor: pointer;
+}
+.task-list button:hover {
+    color: #c82333;
 }
